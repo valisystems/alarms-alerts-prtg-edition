@@ -1,0 +1,201 @@
+<?php
+require_once "include/db.php";
+
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+if($mysqli->connect_errno)
+    exit("Connect failed: " . $mysqli->connect_error);
+
+// Check if this comes in JSON form:
+if(file_get_contents("php://input"))
+{
+    $json = json_decode(file_get_contents("php://input"));
+    //$fp = fopen('data.txt', 'w');
+    //fwrite($fp, print_r($json, true));
+
+    if($json->action == "call-data-record")
+    {
+        $json->intl_call = 'Not an international call';
+    
+        $query = sprintf("INSERT INTO cms_cdr (sys, primarycallid, callid, cid_from, cid_to, direction, remoteparty, localparty, trunkname, trunkid, cost, cmc, domain, timestart, timeconnected, timeend, ltime, durationhhmmss, duration, recordlocation, type, extension, idleduration, ringduration, holdduration, ivrduration, accountnumber, ipadr, intl_call)
+                    values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s', '%s')",
+            $mysqli->real_escape_string($json->System),
+            $mysqli->real_escape_string($json->PrimaryCallID),
+            $mysqli->real_escape_string($json->CallID),
+            $mysqli->real_escape_string($json->From),
+            $mysqli->real_escape_string($json->To),
+            $mysqli->real_escape_string($json->Direction),
+            $mysqli->real_escape_string($json->RemoteParty),
+            $mysqli->real_escape_string($json->LocalParty),
+            $mysqli->real_escape_string($json->TrunkName),
+            (int)$mysqli->real_escape_string($json->TrunkID),
+            $mysqli->real_escape_string($json->Cost),
+            $mysqli->real_escape_string($json->CMC),
+            $mysqli->real_escape_string($json->Domain),
+            $mysqli->real_escape_string($json->TimeStart),
+            $mysqli->real_escape_string($json->TimeConnected),
+            $mysqli->real_escape_string($json->TimeEnd),
+            $mysqli->real_escape_string($json->LocalTime),
+            $mysqli->real_escape_string($json->DurationHHMMSS),
+            $mysqli->real_escape_string($json->Duration),
+            $mysqli->real_escape_string($json->RecordLocation),
+            $mysqli->real_escape_string($json->Type),
+            $mysqli->real_escape_string($json->Extension),
+            (int)$mysqli->real_escape_string($json->IdleDuration),
+            (int)$mysqli->real_escape_string($json->RingDuration),
+            (int) $mysqli->real_escape_string($json->HoldDuration),
+            (int)$mysqli->real_escape_string($json->IvrDuration),
+            $mysqli->real_escape_string($json->AccountNumber),
+            $mysqli->real_escape_string($json->IPAdr),
+            $mysqli->real_escape_string($json->intl_call));
+        $mysqli->query($query);
+    }
+    //fwrite($fp, $query);
+    //fclose($fp);
+}
+
+
+/* TEST
+print_r('<pre>');
+
+    $cid_to = "<sip:+011919814061360@pbx.valnet-service.com>";
+    $cid_number = formatSip($cid_to);
+    $rates = getRatebynumber(build_number_array($cid_number));
+    var_dump($rates);
+    $call_cost = calculateCost($rates, 10);
+    var_dump($call_cost);
+
+print_r('</pre>');
+*/
+
+// SIP could be "<sip:919814061360@pbx.valnet-service.com>" or " nmae <sip:919814061360@pbx.valnet-service.com>";
+function formatSip($sip)
+{
+    $phone_number = '';
+    $exp_lvl1 = explode('<sip:', $sip); //[name, content after <sip:]
+
+    $exp_lvl2 = explode('@', @$exp_lvl1[1]); // [number , domain name]
+
+    $phone_number = @$exp_lvl2[0];
+    if (strlen($phone_number) >= 10)
+    {
+        if (substr($phone_number, 0 , 1) == '+')
+            $phone_number = substr($phone_number, 1);
+        if (substr($phone_number,0 , 3) == '011')
+            $phone_number = substr($phone_number, 3);
+        if (substr($phone_number,0 , 2) == '00')
+            $phone_number = substr($phone_number, 2);
+        if (strlen($phone_number) == 10)
+            $phone_number = '1' . $phone_number;
+    }
+    return $phone_number;
+}
+
+function build_number_array($number)
+{
+    $output  = [];
+    $number_len = strlen($number);
+    for ($i=$number_len; $i > 0; $i--)
+    {
+         $num = mb_strimwidth($number, 0, $i);
+         $output[] = $num;
+    }
+    return $output;
+}
+
+function getRatebynumber($number)
+{
+   global $report_host, $report_name, $report_pass, $report_user;
+    // Query the Database
+    $mysqli = new mysqli($report_host, $report_user, $report_pass, $report_name);
+
+    $mysqlQuery = 'SELECT * FROM call_rates WHERE ';
+    if (is_array($number))
+    {
+        $codeCount = 0 ;
+        foreach ($number as $code)
+        {
+           // to build query
+           if ($codeCount != 0)
+           {
+               $mysqlQuery .=  ' OR code = ' . $code .' ';
+           }
+           else
+           {
+               $mysqlQuery .=  'code = ' . $code;
+           }
+           $codeCount++;
+        }
+    }
+    else
+    {
+        $mysqlQuery .=  "TRIM(LEADING '+' FROM $number) RLIKE code";
+    }
+    $mysqlQuery .= " ORDER BY LENGTH(`code`) DESC limit 0,1";
+
+    $result = [];
+    $result = $mysqli->query($mysqlQuery);
+    if($result != FALSE && $result->num_rows != 0 )
+         return $result->fetch_assoc();
+
+    return [];
+}
+//$sql = "SELECT `rate_out` FROM `rates` WHERE TRIM(LEADING '+' FROM '$remote_call') RLIKE `AreaCode` AND ncuty_id = $customerType ORDER BY LENGTH(`AreaCode`) DESC limit 0,1
+
+function calculateCost($call_rates, $duration)
+{
+    if (!empty($call_rates['rate']))
+    {
+       // CAll duration is
+        $call_rate = $call_rates['rate'] * ($duration / 60);
+        // if number after decimal is larger than 5 it will round up
+        return round($call_rate, 5);
+    }
+    return 0;
+}
+
+/*
+ * if ($row['direction'] != '' && !empty($row['direction'])) {
+        if ($row['direction'] == 'O' && strlen($remote_call_to) > 6) {
+            if (substr($remote_call_to,0 , 1) == '+')
+                $remote_call_to = substr($remote_call_to,1);
+            if (substr($remote_call_to,0 , 3) == '011')
+                $remote_call_to = substr($remote_call_to,3);
+            if (substr($remote_call_to,0 , 2) == '00')
+                $remote_call_to = substr($remote_call_to,2);
+            if (strlen($remote_call_to) == 10)
+                $remote_call_to = '1'.$remote_call_to;
+                $rate = getRates($remote_call_to, $customerType);
+            $total_cost = ($row['duration']/60)*$rate;
+        }
+        if ($row['direction'] == 'I') {
+            if (substr($remote_call_to,0 , 1) == '+')
+                $remote_call_from = substr($remote_call_from,1);
+            if (substr($remote_call_to,0 , 3) == '011')
+                $remote_call_from = substr($remote_call_from,3);
+            if (substr($remote_call_to,0 , 2) == '00')
+                $remote_call_from = substr($remote_call_from,2);
+            $ratesList = getInfoByNumber($remote_call_to);
+            if ($ratesList['serv_type'] == 'tollfree') {
+                $rate = $ratesList['cost_incomming_call'];
+                $total_cost = ($row['duration']/60)*$rate;
+            }
+        }
+    } else {
+        if (strtolower($row['call_type']) == 'extcall' && strlen($remote_call_to) > 6) {
+            if (substr($remote_call_to,0 , 1) == '+')
+                $remote_call_to = substr($remote_call_to,1);
+            if (substr($remote_call_to,0 , 3) == '011')
+                $remote_call_to = substr($remote_call_to,3);
+            if (substr($remote_call_to,0 , 2) == '00')
+                $remote_call_to = substr($remote_call_to,2);
+            if (strlen($remote_call_to) == 10)
+                $remote_call_to = '1'.$remote_call_to;
+            $rate = getRates($remote_call_to, $customerType);
+            $total_cost = ($row['duration']/60)*$rate;
+        }
+ *
+ */
+
+
+?>

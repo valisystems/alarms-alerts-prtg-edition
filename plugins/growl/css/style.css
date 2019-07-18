@@ -1,0 +1,90 @@
+/* the norm */
+#gritter-notice-wrapper {
+	position:fixed;
+	top:40px;
+	right:40px;
+	width:301px;
+	height: auto;
+	z-index:9999;
+}
+#gritter-notice-wrapper.top-left {
+    left: 20px;
+    right: auto;
+}
+#gritter-notice-wrapper.bottom-right {
+    top: auto;
+    left: auto;
+    bottom: 20px;
+    right: 20px;
+}
+#gritter-notice-wrapper.bottom-left {
+    top: auto;
+    right: auto;
+    bottom: 20px;
+    left: 20px;
+}
+#gritter-notice-wrapper.center {
+   	top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -150px;
+}
+.gritter-item-wrapper {
+	position:relative;
+	margin:0 0 10px 0;
+	background-color: rgba(56, 56, 56, 0.7);
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+}
+.gritter-item {
+	display:block;
+	color:#eee;
+	padding:10px;
+}
+.gritter-item p {
+	padding:0;
+	margin:0;
+	word-wrap:break-word;
+}
+.gritter-close {
+	display:none;
+	position:absolute;
+	top:5px;
+	right:7px;
+	cursor:pointer;
+	color: #fff;
+	font-size: 1.5em;
+}
+.gritter-close:hover {
+	color: #d2d2d2;
+}
+.gritter-title {
+	font-size:14px;
+	font-weight:bold;
+	padding:0 0 5px 0;
+	display:block;
+}
+.gritter-image {
+	width:48px;
+	height:auto;
+	float:left;
+}
+.gritter-with-image,
+.gritter-without-image {
+	padding:0;
+}
+.gritter-with-image {
+	width:220px;
+	float:right;
+}
+/* for the light (white) version of the gritter notice */
+.gritter-light {
+    color: #222;
+	background-color: rgba(255, 255, 255, 0.9) !important;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.gritter-light .gritter-item {
+    color: #333;
+}

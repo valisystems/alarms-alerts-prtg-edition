@@ -1,0 +1,1 @@
+<?php echo $JAK_FORM_DATA["content"];?>

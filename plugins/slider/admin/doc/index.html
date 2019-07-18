@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LayerSlider documentation</title>
+	<link rel="stylesheet" href="assets/css/doc.css">
+	<link rel="stylesheet" href="../../css/slider.css">
+	<link rel="stylesheet" href="assets/js/syntaxhighlighter/styles/shCoreKreatura.css">
+	<link rel="stylesheet" href="assets/js/syntaxhighlighter/styles/shThemeKreatura.css">
+	<!--[if lt IE 9]>
+		<script src="assets/js/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+	<header>
+		<h1>Slider Help</h1>
+		<h2>
+			Responsive jQuery Slider Plugin for CMS
+			<p>Version: 1.0</p>
+		</h2>
+		<div class="clear"></div>
+	</header>
+
+	<nav id="subnav">
+		<h3>Table of Contents</h3>
+		<h3>Current Chapter: <span id="curnav" class="light">Overview</span></h3>
+	</nav>
+
+	<aside>
+		<nav>
+			<ul id="sidebar">
+				<li class="active">
+					<span>Slides</span>
+					<ul>
+						<li data-deeplink="creating-slides">Creating slides</li>
+						<li data-deeplink="configuring-slides">Configuring slides</li>
+						<li data-deeplink="slide-contents">Addig slide contents</li>
+						<li data-deeplink="linking-slides">Linking slides</li>
+						<li data-deeplink="deep-linking-slides">Using deep links</li>
+						<li data-deeplink="slide-transitions">Slide transition gallery</li>
+					</ul>
+				</li>
+				<li>
+					<span>Layers</span>
+					<ul>
+						<li data-deeplink="adding-layers">Adding layers</li>
+						<li data-deeplink="positioning-layers">Positioning layers</li>
+						<li data-deeplink="linking-layers">Linking layers</li>
+							<li data-deeplink="adding-media">Embedding video / audio</li>
+						<li data-deeplink="layer-transitions">Layer transitions</li>
+							<li data-deeplink="parallax-layers">Parallax layers</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+
+
+	<div id="content">
+		<div>
+		
+			<!-- Slides -->
+			<section class="active">
+
+				<!-- Creating slides -->
+				<article class="active">
+					<h4>Creating a Slider</h4>
+					<p>Building a professional slider is easy all the important parts CMS will do it for you. You just need to have the images, videos, audios and text ready to implement.</p>
+				</article>
+
+				<!-- Configuring slides -->
+				<article>
+					<h4>Configuring slides</h4>
+					<p>Each slide is called layer and each layer has several sub layers. The layer will have the general information about the layer and sub layers. Each sub layer can contain a image, text, video, audio and can have transitions and effects on his own. Always choose a background image for the first sub layer.</p>
+
+					<h4>Slide options</h4>
+					<div class="table">
+						<table>
+							<thead>
+								<tr>
+									<th>Options</th>
+									<th>Defaults</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>slidedelay</td>
+									<td>4000</td>
+									<td>The total duration in milliseconds while slides are being displayed.</td>
+								</tr>
+								<tr>
+									<td>transition2d</td>
+									<td>1</td>
+									<td>2D transitions to be used.</td>
+								</tr>
+								<tr>
+									<td>transition3d</td>
+									<td>Not set</td>
+									<td>3D transitions to be used.</td>
+								</tr>
+								<tr>
+									<td>timeshift</td>
+									<td>0</td>
+									<td>Advance or postpone layer timings relative to slide transitions.</td>
+								</tr>
+								<tr>
+									<td>deeplink</td>
+									<td>Not set</td>
+									<td>A deeplink alias. See the <a data-goto="deep-linking-slides" href="#">Using deep links</a> chapter for more details.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h4>Timing slides</h4>
+					<p>
+						We are using the <code>slidedelay</code> option to change the total duration of slides while they will be shown. This value is in milliseconds, so the default value <code>4000</code> means 4 seconds.</p>
+					<p>
+						Later in this guide we will add layers and other slide contents with having their own timing settings. Keep in mind that the <code>slidedelay</code> setting will always overrule other timings and the slider won't wait for other elements if they are exceeding the time interval set with <code>slidedelay.</code>
+					</p>
+
+					<h4>Slide Transitions</h4>
+					<p>
+						Transitions can be defined in the same way we did in the example. with the option names of <code>transition2d</code> and <code>transition3d</code>. You can use 2D and 3D transitions separately or together depending on your needs.
+					</p>
+					 <p>
+					 	There are more than 200 2D &amp; 3D preset transitions, so we have created a <a data-goto="slide-transitions" href="#">transition galley</a> that you can view in a separate chapter of this section. You will need to enter their IDs.
+					 </p>
+					<p>
+						You can choose multiple transitions by entering a comma separated list. In that case the slider will use them in random order. or you can use the <code>all</code> value.
+					</p>
+					<p>
+						If you do not specify any transitions, the slider will use a simple slide transition.
+					</p>
+					<pre name="code" class="brush: xml;">
+					&lt;div id="layerslider" style="width: 800px; height: 400px;"&gt;
+
+						&lt;!-- slide with custom settings --&gt;
+						&lt;div class=&quot;ls-slide&quot; data-ls=&quot;slidedelay: 4000; transition2d: 2,7,9;&quot;&gt;
+							&lt;img src=&quot;...&quot; class=&quot;ls-bg&quot; alt=&quot;Slide background&quot;&gt;
+						&lt;/div&gt;
+
+						&lt;!-- slide with custom settings --&gt;
+						&lt;div class=&quot;ls-slide&quot; data-ls=&quot;slidedelay: 4000; transition3d: all;&quot;&gt;
+							&lt;img src=&quot;...&quot; class=&quot;ls-bg&quot; alt=&quot;Slide background&quot;&gt;
+						&lt;/div&gt;
+
+					&lt;/div&gt;</pre>
+					<cite>Using some 2D transitions on a slide</cite>
+
+					<div class="km-notification info cf">
+						<span class="icon-info-circled"></span>
+						Slide transitions between two slides are working only if slide background images (with class=&quot;ls-bg&quot;) are added to both slides.
+					</div>
+
+
+				</article>
+
+				<!-- Slide contents -->
+
+				<article>
+					<h4>Slide contents</h4>
+					<p>
+						There are four types of slide contents
+					</p>
+					<ul class="nomargin">
+						<li>slide background image</li>
+						<li>slide thumbnail</li>
+						<li>special slide data (for example slide link)</li>
+						<li>layers</li>
+					</ul>
+					<p>
+						A slide can contain one slide background image, one slide thumbnail and unlimited number of layers. In this section you will see how to use the slide background images and slide thumbnails.
+					</p>
+					<h4>Adding a slide background image</h4>
+					<p>Always add a background image into the first sub layer.</p>
+
+					<div class="km-notification info cf">
+						<span class="icon-info-circled"></span>
+						Slide transitions will work only if a slide background image is added.
+					</div>
+
+					<div class="km-notification info cf">
+						<span class="icon-info-circled"></span>
+						The slider will use the slide background for thumbnails in certain skins.
+					</div>
+				</article>
+
+				<!-- Linking slides -->
+				<article>
+					<h4>Linking slides</h4>
+					<p>You can link the entire surface of slides by adding a link to a sub layer CMS will do the rest. If you like to link the whole layer you need to add the link at the very last sub layer.</p>
+
+				</article>
+
+				<!-- Deeplinks -->
+				<article>
+					<h4>Deep linking slides</h4>
+					<p>You can specify a slide name/alias, which can be used to start the slideshow with the corresponding slide referencing from the URL.</p>
+					<p>The following example will start the slider with the second slide if we are using the slide alias <code>cakes</code> in the URL <code>jakweb.ch/page/#cakes</code>.</p>
+
+				</article>
+
+				<!-- List of transitions -->
+				<article>
+					<h4>List of transitions</h4>
+					<p>
+						Below there are the available preset 2D / 3D transitions that you can use. Remember, you need to specify the ID of your selected transitions instead of their names.
+					</p>
+					<p>
+						<strong>Move your mouse over the transition names to view them in real-time.</strong>
+					</p>
+					<h4>2D slide transitions</h4>
+					<div class="table ls-transition-list" id="slide-transitions-2d">
+						<table>
+							<thead>
+								<tr>
+									<th class="c">ID</th>
+									<th>Transition name</th>
+									<th class="c">ID</th>
+									<th>Transition name</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+
+					<h4>3D slide transitions</h4>
+					<div class="table ls-transition-list" id="slide-transitions-3d">
+						<table>
+							<thead>
+								<tr>
+									<th class="c">ID</th>
+									<th>Transition name</th>
+									<th class="c">ID</th>
+									<th>Transition name</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</article>
+				
+			</section>
+
+			<!-- Layers -->
+			<section>
+
+				<!-- Adding a layer -->
+				<article>
+					<h4>What is a layer?</h4>
+					<p>
+						Layers are the contents of slides. Unlike with conventional slider plugins, you can use multiple contents in a slide. These can be images, text, custom HTML, video and audio contents.
+					</p>
+
+					<h4>Adding a layer</h4>
+					<p>
+						You can add layers by appending standard HTML elements  into slides. For images/files layers just use the path element. For text/HTML layers use the appropriate element like &lt;div&gt;, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt; etc. The highlighted lines are indicating new additions to our previous examples.
+					</p>
+				</article>
+
+				<!-- Positioning layers -->
+				<article>
+					<h4>Positioning layers</h4>
+					<p>
+						Layers are standard HTML elements, and you can set their initial positions with the <code>style</code> attribute.
+					</p>
+					<p>
+						One difference is, however, is that LayerSlider involves animations, and all your layers needs to be positioned manually with the <code>top</code> and <code>left</code> style properties. In the example below you can see the same layers with some style formatting added.
+					</p>
+					<pre name="code" class="brush: xml;">
+					top: 50%; left: 50%;</pre>
+					<cite>Positioning layers with using of top and left style attributes</cite>
+
+					<h4>Additional notes</h4>
+					<p>Notice the second layer with using percents. Percentage values in LayerSlider works a bit differently than web standards; LayerSlider will always place the center of layers to the given position instead of their sides. This makes easy to position layers exactly to the center by setting the values 50% 50%.</p>
+
+					<h4>Sizing and wrapping text layers</h4>
+					<p>
+						By default text layers don't have fixed width so there could be strange anomalies while a text layer with lots of text is sliding in. In this case please add a width (in pixels or in percentage) to the layer.
+					</p>
+					<p>
+						Add the <code>white-space: nowrap;</code> style property to the layer if you don't want the slider to wrap the text into multiple lines.
+					</p>
+				</article>
+
+				<!-- Linking layers -->
+				<article>
+					<h4>Linking layers</h4>
+					<p>
+						You can link layers by adding a url to the layer.
+					</p>
+
+				</article>
+
+				<!-- Embedding video/audio -->
+				<article>
+					<h4>Embedding YouTube and Vimeo videos</h4>
+					<p>You can include YouTube and Vimeo videos in slides by inserting their embed code into the html input field. The embed code can be found on the corresponding video page on YouTube/Vimeo. LayerSlider will follow the dimensions specified in the embed code, thus you can also set them there. Alternatively, you can override it within your CSS stylesheets.</p>
+					<pre name="code" class="brush: xml">
+							&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/lX6JcybgDFo&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+					</pre>
+					<cite>Embedding YouTube video</cite>
+
+					<h4>Embedding (optionally self-hosted) HTML5 videos</h4>
+					<p>Embedding self-hosted videos involves the HTML5 <code>&lt;video&gt;</code> element. You can find a detailed guide on <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video" target="_blank">this</a> MDN page. The principal is the same described above. Here is a modified example:</p>
+					<pre name="code" class="brush: xml">
+							&lt;video src=&quot;http://v2v.cc/~j/theora_testsuite/320x240.ogg&quot; controls&gt;&lt;/video&gt;
+					</pre>
+					<cite>Embedding HTML5 video</cite>
+
+					<h4>Adding (optionally self-hosted) HTML5 audio</h4>
+					<p>You can include self-hosted audio with the HTML5 <code>&lt;audio&gt;</code> element. You can find a detailed guide on <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video" target="_blank">this</a> MDN page. The principal is the same described above. Here is a modified example:</p>
+					<pre name="code" class="brush: xml">
+							&lt;audio src=&quot;/test/audio.ogg&quot;&gt;&lt;/audio&gt;
+					</pre>
+					<cite>Adding HTML5 audio</cite>
+
+				</article>
+
+				<!-- Layer transitions -->
+				<article>
+					<h4>Layer transitions</h4>
+					<p>
+						The transition options can be set with the custom move input field. Layers don't have any specific settings; all options are responsible for making unique transitions.
+					</p>
+					<div class="table">
+						<table>
+							<thead>
+								<tr>
+									<th>Option</th>
+									<th class="c">Values</th>
+									<th class="c">Defaults</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										offsetxin<br>
+										offsetxout
+									</td>
+									<td class="c">left, right or a &lt;num&gt;</td>
+									<td class="c">80<br>-80</td>
+									<td>The horizontal offset to align the starting position of layers. Positive and negative numbers are allowed. Set left or right to position layers out of the slider.</td>
+								</tr>
+								<tr>
+									<td>
+										offsetyin<br>
+										offsetyout
+									</td>
+									<td class="c">top, bottom or a &lt;num&gt;</td>
+									<td class="c">0</td>
+									<td>The vertical offset to align the starting position of layers. Positive and negative numbers are allowed. Set top or bottom to position layers out of the slider.</td>
+								</tr>
+								<tr>
+									<td>
+										delayin
+									</td>
+									<td class="c">&lt;num&gt;</td>
+									<td class="c">0</td>
+									<td>Delays the layer transitions with the specified amount of time in milliseconds.</td>
+								</tr>
+								<tr>
+									<td>showuntil</td>
+									<td class="c">&lt;num&gt;</td>
+									<td class="c">0</td>
+									<td>After animating in, the layer will be visible for the time you specify here, then it will animate out. You can use this setting for layers to leave the slide before the slide change or for example before other layers will slide in or out. This value in millisecs, so the value 1000 means 1 second.</td>
+								</tr>
+								<tr>
+									<td>
+										durationin<br>
+										durationout
+									</td>
+									<td class="c">&lt;num&gt;</td>
+									<td class="c">1000</td>
+									<td>The duration of layer transitions.</td>
+								</tr>
+								<tr>
+									<td>
+										easingin<br>
+										easingout
+									</td>
+									<td class="c">easing_name</td>
+									<td class="c">easeInOutQuint</td>
+									<td>The timing function used for transitions. See <a href="http://easings.net/">easings.net</a> for more information.</td>
+								</tr>
+								<tr>
+									<td>
+										fadein<br>
+										fadeout
+									</td>
+									<td class="c">true, false</td>
+									<td class="c">true</td>
+									<td>Fades in / out the layer during the transition.</td>
+								</tr>
+								<tr>
+									<td>
+										rotatein<br>
+										rotateout
+									</td>
+									<td class="c">&lt;angle&gt;</td>
+									<td class="c">0</td>
+									<td>Rotates the layer clockwise from the given angle to zero degree. Negative values are allowed for anticlockwise rotation.</td>
+								</tr>
+								<tr>
+									<td>
+										rotatexin<br>
+										rotatexout
+									</td>
+									<td class="c">&lt;angle&gt;</td>
+									<td class="c">0</td>
+									<td>Rotates the layer along the X (horizontal) axis from the given angle to zero degree. Negative values are allowed for reverse direction.</td>
+								</tr>
+								<tr>
+									<td>
+										rotateyin<br>
+										rotateyout
+									</td>
+									<td class="c">&lt;angle&gt;</td>
+									<td class="c">0</td>
+									<td>Rotates the layer along the Y (vertical) axis from the given angle to zero degree. Negative values are allowed for reverse direction.</td>
+								</tr>
+								<tr>
+									<td>
+										scalexin<br>
+										scalexout
+									</td>
+									<td class="c">&lt;num&gt;</td>
+									<td class="c">1</td>
+									<td>Scales the layer's width from the given value to its original size.</td>
+								</tr>
+								<tr>
+									<td>
+										scaleyin<br>
+										scaleyout
+									</td>
+									<td class="c">&lt;num&gt;</td>
+									<td class="c">1</td>
+									<td>Scales the layer's height from the given value to its original size.</td>
+								</tr>
+								<tr>
+									<td>
+										skewxin<br>
+										skewxout
+									</td>
+									<td class="c">&lt;angle&gt;</td>
+									<td class="c">0</td>
+									<td>Skews the layer along the X (horizontal) axis from the given angle to 0 degree. Negative values are allowed for reverse direction.</td>
+								</tr>
+								<tr>
+									<td>
+										skewyin<br>
+										skewyout
+									</td>
+									<td class="c">&lt;angle&gt;</td>
+									<td class="c">0</td>
+									<td>Skews the layer along the Y (vertical) axis from the given angle to 0 degree. Negative values are allowed for reverse direction.</td>
+								</tr>
+								<tr>
+									<td>
+										transformoriginin
+										transformoriginout
+									</td>
+									<td class="c">x y z</td>
+									<td class="c">50% 50% 0</td>
+									<td>This option allows you to modify the origin for transformations of the layer according to its position. The three values represent the X, Y and Z axis in 3D space. OriginX can be left, center, right, a number or a percentage value. OriginY can be top, center, bottom, a number or a percentage value. OriginZ can be a number and corresponds the depth in 3D space.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</article>
+
+				<!-- Parallax layers -->
+
+				<article>
+					<h4>Parallax layers</h4>
+					<p>
+						We added this nice feature to create a fancy parallax effect by moving your mouse over the slider. To use, you will need to add a special property called <code>parallaxlevel</code> to the layer.
+					</p>
+					<pre name="code" class="brush: xml;">
+					 parallaxlevel: 5;</pre>
+					<cite>Using parallax layers</cite>
+
+					<div class="km-notification info cf">
+						<span class="icon-info-circled"></span>
+						You can use both positive or negative values (for opposite directions).
+					</div>
+				</article>
+
+			</section>
+		</div>
+	</div>
+
+	<script src="../../../../js/jquery.js"></script>
+
+	<script src="assets/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
+	<script src="assets/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<script src="assets/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
+	<script src="assets/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
+
+	<script src="../../js/slider.js"></script>
+	
+	<script src="assets/js/gallery.js"></script>
+	<script src="assets/js/doc.js"></script>
+
+</body>
+</html>

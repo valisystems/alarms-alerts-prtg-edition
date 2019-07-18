@@ -1,0 +1,24 @@
+#map_canvas {
+	width: 100%;
+	height: 300px;
+}
+
+#canvas_map {
+	width: 100%;
+	height: 300px;
+	margin-bottom: 20px;
+	display: none;
+}
+
+.directions, #showDirection {	
+	display: none;
+}
+.directions {
+	margin-top: 10px;
+}
+
+.retailers {
+	height: 319px;
+	overflow: scroll;
+	
+}

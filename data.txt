@@ -1,0 +1,52 @@
+stdClass Object
+(
+    [action] => call-data-record
+    [System] => b3585c7513dcf3ca084e1ede534fae3e
+    [PrimaryCallID] => 1fa1581d@pbx
+    [CallID] => bb30992f@pbx
+    [From] => <sip:2003@192.168.30.31>
+    [To] => <sip:Room_47@192.168.30.31>
+    [Direction] => O
+    [RemoteParty] => 2003
+    [LocalParty] => 47
+    [TrunkName] => MiTel
+    [TrunkID] => 1
+    [Cost] => 
+    [CMC] => 
+    [Domain] => 192.168.30.31
+    [TimeStart] => 2016-12-08 18:06:13
+    [TimeConnected] => 2016-12-08 18:07:11
+    [TimeEnd] => 2016-12-08 18:07:13
+    [LocalTime] => 2016-12-08 14:06:13
+    [DurationHHMMSS] => 0:00:02
+    [Duration] => 2
+    [RecordLocation] => 
+    [RecordUsers] => 
+    [Type] => attendant
+    [Extension] => 
+    [ExtensionName] => 
+    [IdleDuration] => 
+    [RingDuration] => 0
+    [HoldDuration] => 0
+    [IvrDuration] => 0
+    [AccountNumber] => Room_47
+    [IPAdr] => udp:192.168.20.2:5060
+    [Quality] => VQSessionReport: CallTerm
+LocalMetrics:
+Timestamps:START=2016-12-08T18:07:11Z STOP=2016-12-08T18:07:13Z
+CallID:bb30992f@pbx
+FromID:sip:2003@192.168.20.2;tag=Mitel-5000_2094648641-1243
+ToID:"Room-47" <sip:47@192.168.30.31>;tag=25845
+SessionDesc:PT=0 PD=PCMU SR=8000 FD=20 FO=160 FPP=1 PPS=50 PLC=3
+LocalAddr:IP=192.168.30.30 PORT=63830 SSRC=0x9dca2d37
+RemoteAddr:IP=192.168.20.3 PORT=6964 SSRC=0x00000013
+x-UserAgent:Vodia-PBX/56.0
+x-SIPmetrics:SVA=RG SRD=311 SFC=0
+x-SIPterm:SDC=OK SDR=AN
+PacketLoss:NLR=0.0 JDR=0.0
+BurstGapLoss:BLD=0.0 BD=0 GLD=0.0 GD=0 GMIN=16
+Delay:RTD=0 ESD=0 IAJ=2
+
+)
+INSERT INTO cms_cdr (sys, primarycallid, callid, cid_from, cid_to, direction, remoteparty, localparty, trunkname, trunkid, cost, cmc, domain, timestart, timeconnected, timeend, ltime, durationhhmmss, duration, recordlocation, type, extension, idleduration, ringduration, holdduration, ivrduration, accountnumber, ipadr, intl_call)
+                    values ('b3585c7513dcf3ca084e1ede534fae3e','1fa1581d@pbx','bb30992f@pbx','<sip:2003@192.168.30.31>','<sip:Room_47@192.168.30.31>','O','2003','47','MiTel','1','','','192.168.30.31','2016-12-08 18:06:13','2016-12-08 18:07:11','2016-12-08 18:07:13','2016-12-08 14:06:13','0:00:02','2','','attendant','','0','0','0','0','Room_47','udp:192.168.20.2:5060', 'Not a international call')

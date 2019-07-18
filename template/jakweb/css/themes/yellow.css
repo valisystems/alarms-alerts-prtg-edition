@@ -1,0 +1,80 @@
+a {
+  color: #f4e64c;
+}
+
+a:hover {
+  color: #bfb007;
+}
+
+.events-list tr:hover .event-date {
+  border-left: 5px solid #f4e64c;
+}
+
+.in-press a:hover {
+  color: #f4e64c;
+}
+
+.zoom-item:hover {
+  border: 8px solid #f4e64c;
+}
+
+.zoom-item .zoom-info-fade .btn:hover {
+  background: #f4e64c;
+}
+
+.footer {
+  border-top: 4px solid #f4e64c;
+}
+
+.pagination > .active > a,
+.pagination > .active > span {
+  border-bottom: 3px solid #f4e64c;
+}
+
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover,
+.nav-tabs > .active > a:focus {
+  border-top: 3px solid #f4e64c;
+}
+
+.pagination > li > a:hover {
+  color: #f4e64c;
+  border-bottom: 3px solid #f4e64c;
+}
+
+.sequence-pagination li {
+  border: 4px solid #f4e64c;
+}
+.sequence-pagination li.current {
+  background: #f4e64c;
+}
+
+ul.nav-main ul.dropdown-menu > li > a {
+	color: #333333;
+}
+
+ul.nav-main ul.dropdown-menu {
+	background-color: #f4e64c;
+}
+
+ul.nav-main ul.dropdown-menu li:hover > a {
+	background: #bfb007;
+}
+
+ul.nav-main .dropdown-submenu > a:after {
+	border-left-color: #333333;
+}
+
+.sb-slidebar a {
+	color: #f4e64c;
+}
+
+.btn-primary {
+  border: 1px solid #f4e64c;
+  background: none repeat scroll 0 0 #f4e64c;
+  color: #333333;
+}
+
+div.feature-box div.feature-box-icon {
+	background: #f4e64c;
+}

@@ -1,0 +1,12 @@
+#CMS Robots File
+#Last change NO 19042016
+
+User-agent: *
+Disallow: /include/
+Disallow: /class/
+Disallow: /admin/
+Disallow: /template/
+Disallow: /lang/
+Disallow: /js/
+Disallow: /css/
+Disallow: /_files/

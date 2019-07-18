@@ -1,0 +1,125 @@
+Array
+(
+    [session] => 
+    [request] => Array
+(
+    [BaseName] => Room_92
+    [DeviceType] => DomeBase
+    [EventType] => Normal
+    [DeviceID] => 62DE65A1
+    [AntennaInt] => 0
+    [PendantRxLevel] => 0
+    [LowBattery] => false
+    [TimeStamp] => 20170107111600
+)
+
+    [get] => Array
+(
+    [BaseName] => Room_92
+    [DeviceType] => DomeBase
+    [EventType] => Normal
+    [DeviceID] => 62DE65A1
+    [AntennaInt] => 0
+    [PendantRxLevel] => 0
+    [LowBattery] => false
+    [TimeStamp] => 20170107111600
+)
+
+    [post] => 
+    [files] => 
+    [server] => Array
+(
+    [ALLUSERSPROFILE] => C:\ProgramData
+    [APPDATA] => C:\Windows\system32\config\systemprofile\AppData\Roaming
+    [CommonProgramFiles] => C:\Program Files\Common Files
+    [CommonProgramFiles(x86)] => C:\Program Files (x86)\Common Files
+    [CommonProgramW6432] => C:\Program Files\Common Files
+    [COMPUTERNAME] => WIN-EARTHBAND
+    [ComSpec] => C:\Windows\system32\cmd.exe
+    [FP_NO_HOST_CHECK] => NO
+    [LOCALAPPDATA] => C:\Windows\system32\config\systemprofile\AppData\Local
+    [NUMBER_OF_PROCESSORS] => 4
+    [OS] => Windows_NT
+    [Path] => C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [PROCESSOR_ARCHITECTURE] => AMD64
+    [PROCESSOR_IDENTIFIER] => Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+    [PROCESSOR_LEVEL] => 6
+    [PROCESSOR_REVISION] => 3c03
+    [ProgramData] => C:\ProgramData
+    [ProgramFiles] => C:\Program Files
+    [ProgramFiles(x86)] => C:\Program Files (x86)
+    [ProgramW6432] => C:\Program Files
+    [PSModulePath] => C:\Windows\system32\WindowsPowerShell\v1.0\Modules\
+    [PUBLIC] => C:\Users\Public
+    [SystemDrive] => C:
+    [SystemRoot] => C:\Windows
+    [TEMP] => C:\Windows\TEMP
+    [TMP] => C:\Windows\TEMP
+    [USERDOMAIN] => WORKGROUP
+    [USERNAME] => WIN-EARTHBAND$
+    [USERPROFILE] => C:\Windows\system32\config\systemprofile
+    [windir] => C:\Windows
+    [_FCGI_MUTEX_] => 2000
+    [_FCGI_X_PIPE_] => \\.\pipe\abws-fcgi-00000000-01d2685940b0cd98000012ac-0000180b
+    [_FCGI_SHUTDOWN_EVENT_] => 1800
+    [X_ABYSS_STATS_SERVER_COMPRESS_ORIGINAL_OUTPUT] => 11070304239
+    [X_ABYSS_STATS_SERVER_COMPRESS_OUTPUT] => 682611937
+    [X_ABYSS_STATS_SERVER_COMPRESS_TOTAL] => 130913
+    [X_ABYSS_STATS_HOST_COMPRESS_ORIGINAL_OUTPUT] => 11070304239
+    [X_ABYSS_STATS_HOST_COMPRESS_OUTPUT] => 682611937
+    [X_ABYSS_STATS_HOST_COMPRESS_TOTAL] => 130913
+    [X_ABYSS_STATS_HOST_CURRENT_UPTIME] => 72198
+    [X_ABYSS_STATS_HOST_UPTIME] => 10700164
+    [X_ABYSS_STATS_HOST_OUTPUT] => 3202582572280
+    [X_ABYSS_STATS_HOST_NOTMODIFIED] => 1228217
+    [X_ABYSS_STATS_HOST_IMAGE] => 1019
+    [X_ABYSS_STATS_HOST_HTML] => 322781
+    [X_ABYSS_STATS_HOST_ERROR] => 322767
+    [X_ABYSS_STATS_HOST_TOTAL] => 216243113
+    [X_ABYSS_STATS_SERVER_CURRENT_UPTIME] => 72198
+    [X_ABYSS_STATS_SERVER_UPTIME] => 10700164
+    [X_ABYSS_STATS_SERVER_OUTPUT] => 3202582604616
+    [X_ABYSS_STATS_SERVER_NOTMODIFIED] => 1228217
+    [X_ABYSS_STATS_SERVER_IMAGE] => 1019
+    [X_ABYSS_STATS_SERVER_HTML] => 322781
+    [X_ABYSS_STATS_SERVER_ERROR] => 322767
+    [X_ABYSS_STATS_SERVER_TOTAL] => 216243106
+    [INSTANCE_ID] => 0
+    [ALL_RAW] => Host: Room_92
+
+    [ALL_HTTP] => HTTP_HOST: Room_92
+
+    [HTTP_HOST] => Room_92
+    [CONTENT_LENGTH] => 0
+    [QUERY_STRING] => BaseName=Room_92&DeviceType=DomeBase&EventType=Normal&DeviceID=62DE65A1&AntennaInt=0&PendantRxLevel=0&LowBattery=false&TimeStamp=20170107111600
+    [REQUEST_METHOD] => GET
+    [REQUEST_FILENAME] => C:\Program Files\Windows HTTP\htdocs\catch.php
+    [SCRIPT_FILENAME] => C:\Program Files\Windows HTTP\htdocs\catch.php
+    [SCRIPT_NAME] => /catch.php
+    [SCRIPT_URL] => /catch.php?BaseName=Room_92&DeviceType=DomeBase&EventType=Normal&DeviceID=62DE65A1&AntennaInt=0&PendantRxLevel=0&LowBattery=false&TimeStamp=20170107111600
+    [SCRIPT_URI] => http://Room_92/catch.php?BaseName=Room_92&DeviceType=DomeBase&EventType=Normal&DeviceID=62DE65A1&AntennaInt=0&PendantRxLevel=0&LowBattery=false&TimeStamp=20170107111600
+    [URL] => /catch.php
+    [APPL_PHYSICAL_PATH] => C:\Program Files\Windows HTTP\htdocs
+    [APPL_MD_PATH] => /
+    [DOCUMENT_ROOT] => C:\Program Files\Windows HTTP\htdocs
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [REQUEST_URI] => /catch.php?BaseName=Room_92&DeviceType=DomeBase&EventType=Normal&DeviceID=62DE65A1&AntennaInt=0&PendantRxLevel=0&LowBattery=false&TimeStamp=20170107111600
+    [REMOTE_PORT] => 49172
+    [REMOTE_ADDR] => 192.168.30.192
+    [LOCAL_ADDR] => 192.168.30.30
+    [SERVER_ADDR] => 192.168.30.30
+    [SERVER_NAME] => Room_92
+    [SERVER_PORT] => 80
+    [IS_SUBREQ] => false
+    [HTTPS] => off
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_SOFTWARE] => Abyss/2.11.1-X1-Win32 AbyssLib/2.11
+    [FCGI_ROLE] => RESPONDER
+    [PHP_SELF] => /catch.php
+    [REQUEST_TIME_FLOAT] => 1483805767.4296
+    [REQUEST_TIME] => 1483805767
+)
+
+    [file_content] => 
+)

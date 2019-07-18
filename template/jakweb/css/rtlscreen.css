@@ -1,0 +1,6 @@
+body { direction: rtl; }
+
+/* Password Strength Meter */
+.pstrength {
+	float: right;       
+}

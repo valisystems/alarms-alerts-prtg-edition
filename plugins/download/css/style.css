@@ -1,0 +1,16 @@
+a.dclick{
+	display:inline-block;
+	width:187px;
+	height:69px;
+	text-indent:-99999px;
+	overflow:hidden;
+	background:url('../img/dlfile.png') no-repeat;
+	cursor:default;
+	border:none;
+	text-decoration:none !important;
+}
+
+a.dclick.active{
+	background-position:left bottom;
+	cursor:pointer;
+}
